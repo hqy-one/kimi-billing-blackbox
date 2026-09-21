@@ -1,0 +1,114 @@
+[
+ {
+  "id": "1a0c2a92-4102-8588-8000-000000b1b66d",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0002,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:31:07.669163Z"
+ },
+ {
+  "id": "1a0c2a92-4462-8b0b-8000-00006f2a79c4",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0011,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:32:04.668586Z"
+ },
+ {
+  "id": "1a0c2aaa-15b2-80b5-8000-0000d778d70b",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0003,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:33:19.547770Z"
+ },
+ {
+  "id": "1a0c2afd-18a2-8182-8000-00008898814f",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0007,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:39:04.738205Z"
+ },
+ {
+  "id": "1a0c2be5-4d92-801e-8000-0000e65375ca",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.002,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:56:17.254081Z"
+ },
+ {
+  "id": "1a0c2c0b-0512-86a4-8000-0000a6876240",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0017,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T06:58:23.202695Z"
+ },
+ {
+  "id": "1a0c2c6b-c452-8b80-8000-0000b79f6303",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0017,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T07:05:24.293737Z"
+ },
+ {
+  "id": "1a0c2ce9-d282-80c8-8000-0000f5a27277",
+  "feature": "FEATURE_WORK",
+  "title": "Kimi Work - Desktop Work",
+  "items": [
+   {
+    "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+    "amountRatio": 0.0003,
+    "unit": "UNIT_CREDIT"
+   }
+  ],
+  "status": "DONE",
+  "timestamp": "2026-09-21T07:12:09.066030Z"
+ }
+]

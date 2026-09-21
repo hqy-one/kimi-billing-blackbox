@@ -1,0 +1,93 @@
+{
+ "note": "Work 通道受控实验表（转录自 REPORT.md §5.5，测量日 2026-09-21）。billed_pct 为计费流水 amountRatio×100，0.01% 网格量化。",
+ "rows": [
+  {
+   "time_bj": "14:31:07",
+   "label": "隐藏调用（标题生成，wire 无记录）",
+   "miss": null,
+   "cache": null,
+   "out": null,
+   "billed_pct": 0.02
+  },
+  {
+   "time_bj": "14:32:04",
+   "label": "W1 只回答两个字（思考 65.2s）",
+   "miss": 29271,
+   "cache": 0,
+   "out": 41,
+   "billed_pct": 0.11
+  },
+  {
+   "time_bj": "14:33:19",
+   "label": "W2 光合作用长文",
+   "miss": 186,
+   "cache": 29184,
+   "out": 1055,
+   "billed_pct": 0.03
+  },
+  {
+   "time_bj": "14:39:04",
+   "label": "W3 扩写",
+   "miss": 1294,
+   "cache": 29184,
+   "out": 2150,
+   "billed_pct": 0.07
+  },
+  {
+   "time_bj": "14:56:17",
+   "label": "W4 深海热泉长文",
+   "miss": 2227,
+   "cache": 30464,
+   "out": 6856,
+   "billed_pct": 0.2
+  },
+  {
+   "time_bj": "14:58:23",
+   "label": "W5 古罗马水道长文",
+   "miss": 7096,
+   "cache": 32512,
+   "out": 4972,
+   "billed_pct": 0.17
+  },
+  {
+   "time_bj": "15:05:24",
+   "label": "W6 对比综述",
+   "miss": 5219,
+   "cache": 39424,
+   "out": 5514,
+   "billed_pct": 0.17
+  },
+  {
+   "time_bj": "15:12:09",
+   "label": "W7 一句话总结（缓存隔离测量）",
+   "miss": 5668,
+   "cache": 44544,
+   "out": 155,
+   "billed_pct": 0.03
+  },
+  {
+   "time_bj": "15:27:56~15:28:49",
+   "label": "T8 大文本任务（5 步，文件引用+分块读取）",
+   "miss": "268~10150",
+   "cache": "50176~63488",
+   "out": "49~158",
+   "billed_pct": "0.01~0.05 ×5"
+  },
+  {
+   "time_bj": "15:29:32",
+   "label": "T9/T10 短答",
+   "miss": 232,
+   "cache": 63744,
+   "out": 1322,
+   "billed_pct": 0.05
+  },
+  {
+   "time_bj": "15:30:02",
+   "label": "T11 十字概括",
+   "miss": 1608,
+   "cache": 63744,
+   "out": 183,
+   "billed_pct": 0.02
+  }
+ ]
+}
