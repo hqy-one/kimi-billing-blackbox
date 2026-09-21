@@ -264,7 +264,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   <!-- 关键数字 -->
   <section style="padding-top:34px">
     <div class="figures">
-      <div class="fig"><div class="v mono">¥1,000</div><div class="k">月度额度池的 API 标价锚点<br>（1% ≡ ¥10，实测推算）</div></div>
+      <div class="fig"><div class="v mono">10,000<small> credits</small></div><div class="k">月度额度池（1 credit = 0.01%）<br>实测汇率 1 credit ≡ ¥0.10 API 标价</div></div>
       <div class="fig red"><div class="v mono">22×</div><div class="k">缓存计费差距<br>Code ¥0.08/M vs Work ¥1.82/M</div></div>
       <div class="fig red"><div class="v mono">2.6×</div><div class="k">Work 输出加价<br>实测 ¥263~272/M（官方 ¥105）</div></div>
       <div class="fig"><div class="v mono">≈19.5<small>%</small></div><div class="k">一次 41.9 分钟的 Work 任务<br>蒸发的月度额度（计数器口径）</div></div>
@@ -280,7 +280,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <ol class="clause">
       <li><span class="c-no mono">01</span><div><h3>你付的钱</h3><p>¥199/月，固定。用多用少都是这个价，不超收、不退还。</p></div></li>
       <li><span class="c-no mono">02</span><div><h3>你得到的东西</h3><p>一根 0~100% 的百分比条。官方只公布档位间的相对倍率和粗略的任务数估算；没有绝对 token 数，没有人民币折算，没有分项费率。</p></div></li>
-      <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p>1% = 官方 API 标价 ¥10，全池 = ¥1,000 标价。下文所有的"¥"都指这个标价口径，不是你的实付。</p></div></li>
+      <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p>全池 = 10,000 credits（1 credit = 0.01%，正好是最小计费刻度）；实测汇率 1 credit ≡ ¥0.10 官方 API 标价 ⇒ 全池 ≈ ¥1,000 标价。下文的「¥」都是这个标价折算，不是你的实付。</p></div></li>
       <li><span class="c-no mono">04</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成百分比从池中扣除（0.01% 取整，单次最低 0.01%）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
     </ol>
 </div>
@@ -2459,7 +2459,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="sec-label">购 买 力 测 算</div>
     <h2>同一张 ¥199，三条通道三种买力</h2>
     <p class="prose">
-      额度池按 API 标价锚定 ¥1,000。但同样的池子，走不同通道能买到的实际算力不同（按实测费率与 98% 缓存结构推算）：
+      额度池 = 10,000 credits。锚点基准行：全买官方价输出 = <b>¥1,000（1.00×）</b>——标尺本身就是购买力表的第一行。同样的池子走不同通道，读数随之浮动（按实测费率与 98% 缓存结构推算）：
     </p>
     <div class="power">
       <div class="row">
@@ -2498,7 +2498,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
         <tr><td>OpenAI Codex / Anthropic Claude</td><td>固定月费 + 时间窗限速</td><td><span class="tag mid">中</span></td><td>无月度死池；窗口内用量不透明但制度可预期</td></tr>
         <tr><td>Manus</td><td>积分制（$20 = 4,000 credits）</td><td><span class="tag low">低</span></td><td>官方自认"成本难以预测"</td></tr>
         <tr><td>Devin</td><td>ACU 制（$2.25/ACU ≈ 15 分钟）</td><td><span class="tag low">低</span></td><td>社区批评"不透明、不可预测的 ACU 计费"</td></tr>
-        <tr class="kimi"><td>Kimi Allegretto</td><td>月度共享死池（实测 ¥1,000 标价池；官方档位口径"Agent 档 4 倍"）</td><td><span class="tag low">低</span></td><td>仅百分比进度条；双费率卡未公示；插件按次抽成无提示（本报告实测）</td></tr>
+        <tr class="kimi"><td>Kimi Allegretto</td><td>月度共享死池（实测 10,000 credits ≈ ¥1,000 标价池；官方档位口径"Agent 档 4 倍"）</td><td><span class="tag low">低</span></td><td>仅百分比进度条；双费率卡未公示；插件按次抽成无提示（本报告实测）</td></tr>
       </tbody>
     </table>
     </div>
@@ -2521,8 +2521,8 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
         <li>本页为<b>个人消费计量研究</b>：付费用户测量自己账号的消费记录，属消费者知情权范畴；不构成对任何主体的指控，亦不构成法律意见。</li>
         <li>费率卡为<b>有限信息下的数学反演</b>：全部给出量化区间而非单点断言；凡属解释性内容（如商业逻辑推测）在报告中均已单独标注为推测。</li>
         <li>测量范围为单一账号、单档位、K3 High 模式、2026-09-21 当日；官方可随时调整计费规则，届时本报告相应内容转为历史记录。</li>
-        <li>测量误差受 0.01% 计费量化网格限制（单次最小分辨 ¥0.10）；我们以区间交集与总量回测双重控制该误差。</li>
-        <li>官方对 Allegretto 档位的宣传口径为"Agent 档额度的 4 倍"（档位间相对值）；本报告的"¥1,000 标价池 / 5.03×"为实测推算，两者口径不同，均已如实标注。截至测量日，官方未公示任何档位的额度绝对值与池内费率。</li>
+        <li>测量误差受 0.01% = 1 credit 计费量化网格限制（单次最小分辨 ≈¥0.10 标价）；我们以区间交集与总量回测双重控制该误差。</li>
+        <li>官方对 Allegretto 档位的宣传口径为"Agent 档额度的 4 倍"（档位间相对值）；本报告的「10,000 credits ≈ ¥1,000 标价池 / 5.03×」为实测推算，两者口径不同，均已如实标注。截至测量日，官方未公示任何档位的额度绝对值与池内费率。</li>
         <li>本报告所用接口路径此前已有社区记录，我们的增量是受控实验费率卡与双通道发现；外部价格事实经独立调研核验（<a href="./research/factcheck-2026-09-21.md">核验记录</a>）。</li>
         <li>全部原始数据（脱敏后）与拟合脚本随仓库公开，欢迎复核与复现；方法见 <a href="./METHOD.md">METHOD.md</a>。</li>
       </ol>
