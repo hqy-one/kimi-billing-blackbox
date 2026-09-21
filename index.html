@@ -271,6 +271,24 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     </div>
   </section>
 
+  <!-- 积分流水卡 -->
+  <section>
+    <div class="sec-label">一 卡 读 懂</div>
+    <h2>你的 ¥199，是一包 10,000 credits 的点卡</h2>
+    <div class="receipts" style="grid-template-columns:1fr; margin-top:18px">
+      <div class="receipt">
+        <h3>积 分 流 水 卡 · Allegretto（老套餐）</h3>
+        <div class="line"><span>你付出</span><span class="mono">¥199 / 月（固定）</span></div>
+        <div class="line"><span>你得到</span><span class="mono">10,000 credits（1 credit = 0.01% 池）</span></div>
+        <div class="line"><span>按官方目录价锚定（实测汇率 1 credit ≡ ¥0.10）</span><span class="mono">≈ ¥1,000</span></div>
+        <div class="line"><span>走 <b>Code</b> 通道：缓存近免费 + 输入 63 折 → 积分升值</span><span class="mono" style="color:var(--ink)">值 ¥2,540</span></div>
+        <div class="line"><span>走 <b>Work</b> 通道：输出加价 2.6× + 缓存照价收 + 开机费 → 积分贬值</span><span class="mono red">值 ¥570</span></div>
+        <div class="line"><span>Work + iFinD 插件跑一次真实任务（41.9 分钟实录）</span><span class="mono red">值 ¥397</span></div>
+        <div class="total"><span>同一包积分，换条通道，购买力相差 6.4 倍</span><span class="mono">0.40× ~ 2.54×</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- 机制速览 -->
   <section>
     <div class="sec-label">机 制 速 览 · 先 读 这 一 节</div>
@@ -281,9 +299,8 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       <li><span class="c-no mono">01</span><div><h3>你付的钱</h3><p>¥199/月，固定。用多用少都是这个价，不超收、不退还。</p></div></li>
       <li><span class="c-no mono">02</span><div><h3>你得到的东西</h3><p>一根 0~100% 的百分比条。官方只公布档位间的相对倍率和粗略的任务数估算；没有绝对 token 数，没有人民币折算，没有分项费率。</p></div></li>
       <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p>全池 = 10,000 credits（1 credit = 0.01%，正好是最小计费刻度）；实测汇率 1 credit ≡ ¥0.10 官方 API 标价 ⇒ 全池 ≈ ¥1,000 标价。下文的「¥」都是这个标价折算，不是你的实付。</p></div></li>
-      <li><span class="c-no mono">04</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成百分比从池中扣除（0.01% 取整，单次最低 0.01%）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
+      <li><span class="c-no mono">04</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成 credits 从池中扣除（1 credit = 0.01% 取整，单次最低 1 credit）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
     </ol>
-</div>
 
     <div class="verdict" style="margin-top:18px">
       <b>为什么同一件事有两种价格？</b>因为第 04 条的"通道费率"从未公示。同一个 K3 模型、同一池额度，
