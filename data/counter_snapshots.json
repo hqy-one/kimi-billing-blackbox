@@ -1,19 +1,17 @@
 {
- "note": "官方计数器读数快照（GetSubscriptionStats / 用户侧页面），各自标注来源",
+ "note": "官方计数器读数快照（GetSubscriptionStats / 用户侧页面），各自标注来源；流水口径分解见 REPORT.md 摘要第 13 条",
  "readings": [
   {
    "ts": "2026-09-21T05:12Z",
    "amountUsedRatio": null,
    "kimiCodeUsedRatio": 0.0226,
-   "source": "GetSubscriptionStats API 实测",
-   "file": "01_evidence/stats_baseline.json（调研目录）"
+   "source": "GetSubscriptionStats API 实测"
   },
   {
    "ts": "2026-09-21T06:09:47Z",
    "amountUsedRatio": 0.2222,
    "kimiCodeUsedRatio": 0.0292,
-   "source": "GetSubscriptionStats API 实测",
-   "file": "02_experiments/work_exp_baseline.txt（调研目录）"
+   "source": "GetSubscriptionStats API 实测"
   },
   {
    "ts": "2026-09-21T08:50Z",

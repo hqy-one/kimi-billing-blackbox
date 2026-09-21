@@ -221,6 +221,7 @@ footer .f-note{font-size:12px; color:var(--ink3); line-height:1.8; max-width:520
 footer .f-note a{color:var(--ink2)}
 footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; flex:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{*{-webkit-print-color-adjust:exact; print-color-adjust:exact} body{background:#fff} section{break-inside:avoid-page; margin-bottom:32px} .hero{break-after:page} svg{max-width:100%; height:auto}}
 </style>
 </head>
 <body>
@@ -2353,7 +2354,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     </div>
     <div class="verdict">
       <b>口径说明</b>：曲线纵轴为<b>官方计数器口径</b>（形状取自 995 条计费流水，按 0% / 22.22%（14:09 API 实测）/ 25.35%（16:50）三点分段校准；
-      任务终点 ≈19.5% 为用户侧读数）。流水逐条合计比计数器高 2.6%——逐条 0.01% 量化+保底的累积膨胀，详见报告摘要第 9 条。
+      任务终点 ≈19.5% 为用户侧读数）。流水逐条合计比计数器高 2.6%——逐条 0.01% 量化+保底的累积膨胀，详见报告摘要第 13 条。
     </div>
   </section>
 
@@ -2508,6 +2509,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       <div class="ev"><div class="v">160</div><div class="k">有机调用秒级配对<br>（缓存价交叉验证）</div></div>
       <div class="ev"><div class="v">+0.7%</div><div class="k">上午任务回测偏差<br>（¥146.7 vs ¥145.7）</div></div>
     </div>
+    <p style="font-size:13px;margin-top:12px;color:var(--ink3)">原始数据 <a href="https://github.com/hqy-one/kimi-billing-blackbox/tree/main/data">data/</a> · 复现脚本 <a href="https://github.com/hqy-one/kimi-billing-blackbox/tree/main/scripts">scripts/</a> · 独立审计 <a href="https://github.com/hqy-one/kimi-billing-blackbox/tree/main/research">research/</a> · 主报告 <a href="https://github.com/hqy-one/kimi-billing-blackbox/blob/main/REPORT.md">REPORT.md</a></p>
     <div class="disclaimer">
       <h3>免 责 与 边 界 声 明</h3>
       <ol>
