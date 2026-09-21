@@ -296,7 +296,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       <div class="receipt">
         <h3>两个"钱"的口径，别混</h3>
         <div class="line"><span><b>标价口径（口径 A）</b>：池子的内部记账单位。说"这次扣费 ¥1.10"，意思是"相当于 ¥1.10 的官方 API 标价"——用来比较通道与任务的相对成本。本页的 ¥ 默认此口径。</span></div>
-        <div class="line" style="margin-top:8px"><span><b>实付口径（口径 B）</b>：你真实付出的固定 ¥199/月。走 Code 通道，这 ¥199 约买到 ¥2,540 标价算力；走 Work+iFinD，只买到约 ¥403（见购买力测算）。</span></div>
+        <div class="line" style="margin-top:8px"><span><b>实付口径（口径 B）</b>：你真实付出的固定 ¥199/月。走 Code 通道，这 ¥199 约买到 ¥2,540 标价算力；走 Work+iFinD，只买到约 ¥397（见购买力测算）。</span></div>
       </div>
     </div>
   </section>
@@ -2362,8 +2362,8 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="sec-label">费 率 校 准</div>
     <h2>同一个 K3 模型，两套实测费率卡</h2>
     <p class="prose">
-      官方 API 公开定价（输入 ¥21 / 缓存 ¥2.1 / 输出 ¥105 每百万 tokens），但会员池内如何折算从未公示。
-      我们用 <b>19 个 Code 控制变量实验点</b>、<b>14 个 Work 受控回合</b>与 <b>160 对有机调用秒级配对</b>，
+      官方 API 挂牌价 $3.00/$0.30/$15.00 per M（按 1 USD ≈ ¥7.0 折算：¥21/¥2.1/¥105），但会员池内如何折算从未公示。
+      我们用 <b>18 个 Code 受控调用 + 2 个有机验证点</b>、<b>14 个 Work 受控回合</b>与 <b>160 对有机调用秒级配对</b>，
       把两套费率逐一钉在刻度尺上（区间为 0.01% 量化网格下的可行域）：
     </p>
     <div class="rulers" id="rulers"></div>
@@ -2383,7 +2383,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="sec-label">解 剖 实 录</div>
     <h2>41.9 分钟，≈19.5%：一次 Work 任务的完整解剖</h2>
     <p class="prose">
-      2026-09-21 上午，一个"Max effort"深度研究任务：15 个代理、258 次模型调用、1,534 万 tokens（93% 为缓存读）。
+      2026-09-21 上午，一个"Max effort"深度研究任务：15 个代理、254 条去重模型调用、1,518 万 tokens（93% 为缓存读）。
       计费流水逐条合计，这一次任务消耗 <span class="mono">20.89%</span>——而当日全天官方计数器仅 <span class="mono">25.35%</span>（流水合计 <span class="mono">27.96%</span>），
       即这一个任务吃掉了全天消耗的大部分。
     </p>
@@ -2403,23 +2403,23 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
         <div class="anat-cell">
           <h3>扣费去向（按 feature）</h3>
           <div class="kv"><span>Work 模型调用（250 步）</span><b class="red">14.57%</b></div>
-          <div class="kv"><span>iFinD 数据源插件（317 次 × 0.02%）</span><b>6.18%</b></div>
+          <div class="kv"><span>iFinD 数据源插件（317 次调用、309 次计费 × 0.02%）</span><b>6.18%</b></div>
           <div class="kv"><span>Code 问答（任务中穿插）</span><b>0.14%</b></div>
           <div class="kv"><span>联网搜索（63 次）</span><b>0（免费）</b></div>
         </div>
         <div class="anat-cell">
-          <h3>Work 模型扣费的 token 构成（¥148.6 推算）</h3>
+          <h3>Work 模型扣费的 token 构成（¥146.7 推算）</h3>
           <div class="costbar">
-            <div class="costrow"><span class="name">输出 31.4 万</span><div class="track"><div class="fill red" style="width:57%"></div></div><span class="amt">¥84.7</span></div>
-            <div class="costrow"><span class="name">新输入 103 万</span><div class="track"><div class="fill" style="width:26%"></div></div><span class="amt">¥38.4</span></div>
-            <div class="costrow"><span class="name">缓存读 1,400 万</span><div class="track"><div class="fill grey" style="width:17%"></div></div><span class="amt">¥25.5</span></div>
+            <div class="costrow"><span class="name">输出 31.1 万</span><div class="track"><div class="fill red" style="width:57%"></div></div><span class="amt">¥83.7</span></div>
+            <div class="costrow"><span class="name">新输入 102 万</span><div class="track"><div class="fill" style="width:26%"></div></div><span class="amt">¥37.8</span></div>
+            <div class="costrow"><span class="name">缓存读 1,386 万</span><div class="track"><div class="fill grey" style="width:17%"></div></div><span class="amt">¥25.2</span></div>
           </div>
-          <p style="font-size:12px;color:var(--ink3);margin-top:10px">费率卡回测上午任务总扣费：预测 ¥148.6 vs 实扣 ¥145.7，偏差 +2.0%。</p>
+          <p style="font-size:12px;color:var(--ink3);margin-top:10px">费率卡回测上午任务总扣费：预测 ¥146.7 vs 实扣 ¥145.7，偏差 +0.7%。</p>
         </div>
       </div>
     </div>
     <div class="verdict">
-      同样的 1,534 万 tokens 走 Code 通道只值 <b>¥46.7</b>——Work 通道实扣 <b>¥145.7</b>，3.1 倍。
+      同样的 1,518 万 tokens 走 Code 通道只值 <b>¥47.2</b>——Work 通道实扣 <b>¥145.7</b>，3.1 倍。
       贵在三处：输出加价 2.6×、缓存照价收费、输入加价 1.8×。另有 iFinD 插件按次抽成 0.02%/次，任务前无任何提示。
     </div>
   </section>
@@ -2464,17 +2464,17 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       <div class="row">
         <div class="name">纯 Work 通道<small>三项加价后的标价换算</small></div>
         <div class="track"><div class="fill grey" style="width:22.7%"></div></div>
-        <div class="val">≈ ¥577</div>
+        <div class="val">≈ ¥570</div>
       </div>
       <div class="row">
         <div class="name">Work + iFinD 混合<small>上午任务的真实结构</small></div>
         <div class="track"><div class="fill red" style="width:15.9%"></div></div>
-        <div class="val">≈ ¥403</div>
+        <div class="val">≈ ¥397</div>
       </div>
     </div>
     <p class="prose" style="margin-top:14px">
       折算会员费口径的有效单价：Code 通道 <span class="mono">¥0.27/M tokens</span>，
-      Work 通道 <span class="mono">¥1.89/M</span>——相差 <b>7 倍</b>。轻度使用的 Code 订阅依然划算；
+      Work 通道 <span class="mono">¥1.91/M</span>——相差 <b>7 倍</b>。轻度使用的 Code 订阅依然划算；
       问题从来不在价格水平，而在<b>用户无法在任务开始前预知成本</b>。
     </p>
   </section>
@@ -2503,10 +2503,10 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="sec-label">证 据 强 度</div>
     <h2>每个数字都可以复算</h2>
     <div class="evidence">
-      <div class="ev"><div class="v">19/19</div><div class="k">Code 控制变量实验点<br>全部落量化带</div></div>
+      <div class="ev"><div class="v">20/20</div><div class="k">Code 实验点（18 受控+2 有机）<br>全部落量化带</div></div>
       <div class="ev"><div class="v">14/14</div><div class="k">Work 受控方程<br>RMSE ¥0.028 = 噪声下限</div></div>
       <div class="ev"><div class="v">160</div><div class="k">有机调用秒级配对<br>（缓存价交叉验证）</div></div>
-      <div class="ev"><div class="v">+2.0%</div><div class="k">上午任务回测偏差<br>（¥148.6 vs ¥145.7）</div></div>
+      <div class="ev"><div class="v">+0.7%</div><div class="k">上午任务回测偏差<br>（¥146.7 vs ¥145.7）</div></div>
     </div>
     <div class="disclaimer">
       <h3>免 责 与 边 界 声 明</h3>

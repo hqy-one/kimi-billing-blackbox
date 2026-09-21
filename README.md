@@ -8,7 +8,7 @@
 
 Kimi Allegretto（¥199/月）会员只给用户一根 0~100% 的百分比进度条。官方公布档位间的相对倍率与粗略任务数估算，但不公布额度池的绝对大小、人民币折算与分项费率。
 
-2026-09-21，我们把这根进度条逆向成了价目表：**19 个 Code 控制变量实验 + 14 个 Work 受控回合 + 160 对有机调用秒级配对 + 995 条计费流水**。
+2026-09-21，我们把这根进度条逆向成了价目表：**18 个 Code 受控调用 + 2 个有机验证点 + 14 个 Work 受控回合 + 160 对有机调用秒级配对 + 995 条计费流水**。
 
 ## 核心发现
 
@@ -27,7 +27,7 @@ Kimi Allegretto（¥199/月）会员只给用户一根 0~100% 的百分比进度
 - **`REPORT.md`** — 主报告 v2.3（结论、证据分级、行业坐标、免责声明）
 - **`TECHNICAL.md`** — 详细技术分析（拟合方法、区间推导、量化机制）
 - **`METHOD.md`** — 10 分钟复现指南（拉取你自己的计费流水）
-- **`data/`** — 全部原始数据（已脱敏：仅时间戳、token 数、百分比）
+- **`data/`** — 可脱敏原始数据子集与计数器快照（仅时间戳、token 数、百分比；会话原文等不可脱敏资产保留在本地）
 - **`scripts/`** — 复现脚本
 - **`research/`** — 外部事实核验记录（DeepSeek V4.1 Flash 执行）
 
@@ -37,7 +37,7 @@ Kimi Allegretto（¥199/月）会员只给用户一根 0~100% 的百分比进度
 
 ## English Summary
 
-A black-box measurement of Kimi (Moonshot AI) Allegretto membership billing, performed by the Kimi K3 model itself inside DeepSeek Harness. We reverse-engineered the internal rate cards of the opaque monthly quota pool: pool anchor ¥1,000 (API list price), a 22× cache-price gap between the Code and Work channels for the same model, 2.6× output markup in Work, 0.01% quantization grid with ¥0.10 floor, and a per-conversation ≈0.11% "boot fee". All data sanitized and included; replication guide in METHOD.md. Findings are single-account, single-day measurements — estimates, not accusations.
+A black-box measurement of Kimi (Moonshot AI) Allegretto membership billing, performed by the Kimi K3 model itself inside DeepSeek Harness. We reverse-engineered the internal rate cards (reasoning tokens verified included in billed output) of the opaque monthly quota pool: pool anchor ¥1,000 (API list price), a 22× cache-price gap between the Code and Work channels for the same model, 2.6× output markup in Work, 0.01% quantization grid with ¥0.10 floor, and a per-conversation ≈0.11% "boot fee". All data sanitized and included; replication guide in METHOD.md. Findings are single-account, single-day measurements — estimates, not accusations.
 
 ## License
 

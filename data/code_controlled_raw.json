@@ -1,0 +1,542 @@
+{
+ "note": "Code 通道受控实验原始记录（2026-09-21，控制变量块 A/B/D）",
+ "blocks": {
+  "exp_block_a_results.json": [
+   {
+    "tag": "E-A1",
+    "bj_start": "12:21:16",
+    "bj_end": "12:21:21",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 16,
+     "total_tokens": 114,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "reasoning_chars": 25
+   },
+   {
+    "tag": "E-A2",
+    "bj_start": "12:21:36",
+    "bj_end": "12:21:38",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 16,
+     "total_tokens": 114,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "reasoning_chars": 51
+   },
+   {
+    "tag": "E-A3",
+    "bj_start": "12:21:53",
+    "bj_end": "12:21:58",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 16,
+     "total_tokens": 114,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "reasoning_chars": 49
+   },
+   {
+    "tag": "E-B-10K",
+    "bj_start": "12:22:13",
+    "bj_end": "12:22:15",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 5331,
+     "completion_tokens": 16,
+     "total_tokens": 5347,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "reasoning_chars": 23
+   },
+   {
+    "tag": "E-C-30K",
+    "bj_start": "12:22:35",
+    "bj_end": "12:22:40",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 15774,
+     "completion_tokens": 61,
+     "total_tokens": 15835,
+     "completion_tokens_details": {
+      "reasoning_tokens": 45
+     }
+    },
+    "finish": "stop",
+    "out_chars": 2,
+    "reasoning_chars": 197
+   },
+   {
+    "tag": "E-D-60K",
+    "bj_start": "12:23:00",
+    "bj_end": "12:23:06",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 31437,
+     "completion_tokens": 16,
+     "total_tokens": 31453,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "reasoning_chars": 22
+   },
+   {
+    "tag": "E-E-30K-replay",
+    "bj_start": "12:23:26",
+    "bj_end": "12:23:30",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 15774,
+     "completion_tokens": 40,
+     "total_tokens": 15814,
+     "cached_tokens": 15774,
+     "completion_tokens_details": {
+      "reasoning_tokens": 23
+     },
+     "prompt_tokens_details": {
+      "cached_tokens": 15774
+     }
+    },
+    "finish": "stop",
+    "out_chars": 2,
+    "reasoning_chars": 39
+   },
+   {
+    "tag": "E-F-longout",
+    "bj_start": "12:23:50",
+    "bj_end": "12:25:21",
+    "error": "Remote end closed connection without response"
+   }
+  ],
+  "exp_block_b_results.json": [
+   {
+    "tag": "B1-100K",
+    "bj_start": "12:30:40",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 99036,
+     "completion_tokens": 16,
+     "total_tokens": 99052,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "bj_end": "12:30:49"
+   },
+   {
+    "tag": "B2-100K-replay",
+    "bj_start": "12:31:09",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 99036,
+     "completion_tokens": 16,
+     "total_tokens": 99052,
+     "cached_tokens": 99036,
+     "completion_tokens_details": {
+      "reasoning_tokens": 13
+     },
+     "prompt_tokens_details": {
+      "cached_tokens": 99036
+     }
+    },
+    "finish": "length",
+    "out_chars": 0,
+    "bj_end": "12:31:14"
+   },
+   {
+    "tag": "B3-longout",
+    "bj_start": "12:31:34",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 131,
+     "completion_tokens": 2246,
+     "total_tokens": 2377,
+     "completion_tokens_details": {
+      "reasoning_tokens": 142
+     }
+    },
+    "chunks": 2206,
+    "out_chars": 3957,
+    "bj_end": "12:33:02"
+   },
+   {
+    "tag": "B4-200K",
+    "bj_start": "12:33:22",
+    "error": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>",
+    "bj_end": "12:33:22"
+   },
+   {
+    "tag": "B5-200K-replay",
+    "bj_start": "12:33:42",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 197923,
+     "completion_tokens": 39,
+     "total_tokens": 197962,
+     "completion_tokens_details": {
+      "reasoning_tokens": 23
+     }
+    },
+    "finish": "stop",
+    "out_chars": 2,
+    "bj_end": "12:34:01"
+   },
+   {
+    "tag": "T1",
+    "bj_start": "12:34:21",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 48,
+     "total_tokens": 146,
+     "completion_tokens_details": {
+      "reasoning_tokens": 31
+     }
+    },
+    "finish": "stop",
+    "out_chars": 4,
+    "bj_end": "12:34:24"
+   },
+   {
+    "tag": "T2",
+    "bj_start": "12:34:44",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 37,
+     "total_tokens": 135,
+     "completion_tokens_details": {
+      "reasoning_tokens": 20
+     }
+    },
+    "finish": "stop",
+    "out_chars": 4,
+    "bj_end": "12:34:46"
+   },
+   {
+    "tag": "T3",
+    "bj_start": "12:35:06",
+    "status": 200,
+    "usage": {
+     "prompt_tokens": 98,
+     "completion_tokens": 124,
+     "total_tokens": 222,
+     "completion_tokens_details": {
+      "reasoning_tokens": 107
+     }
+    },
+    "finish": "stop",
+    "out_chars": 4,
+    "bj_end": "12:35:13"
+   }
+  ],
+  "exp_block_d_actions.json": [
+   {
+    "id": "94864534-83d2-44b3-874a-c865073b272c",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:53:39.094480Z"
+   },
+   {
+    "id": "d72564fd-4826-46e6-b941-1cd56b49cf90",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:51:05.073318Z"
+   },
+   {
+    "id": "60617bd4-7214-4583-8d47-d7b103dd1112",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0027,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:50:41.568389Z"
+   },
+   {
+    "id": "72cbb2b8-6ad5-4079-bd20-37fb439b78de",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0003,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:50:27.714535Z"
+   },
+   {
+    "id": "733a4d62-ea44-455a-a167-d26e3d31b5f6",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0002,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:49:25.805624Z"
+   },
+   {
+    "id": "e246af5c-7ad0-418a-b357-e4a039c0c490",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:48:50.634267Z"
+   },
+   {
+    "id": "1c9e12e8-cbed-4eb5-94da-f51ebd7a2567",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:48:30.792036Z"
+   },
+   {
+    "id": "6b9d36bd-b98b-40be-a39b-5efd62c15d02",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:48:20.869734Z"
+   },
+   {
+    "id": "e02e7a88-75a9-4296-bfa1-52e179fba2e5",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:48:02.394975Z"
+   },
+   {
+    "id": "77a9ac58-c884-495c-b851-a1265bb3e2a2",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:47:44.084390Z"
+   },
+   {
+    "id": "0cfd6ae6-a3b9-4db8-a44b-bf171f77c12f",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:47:27.227563Z"
+   },
+   {
+    "id": "8a8184e3-f965-49fb-8b2d-9cfc94fbcce5",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:47:15.387796Z"
+   },
+   {
+    "id": "07727a8c-64a2-4932-8c66-97a187f9f354",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0003,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:46:52.298202Z"
+   },
+   {
+    "id": "a6c2cc90-49ae-4b5c-97d0-ebb06ba3d2d1",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0002,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:46:07.888875Z"
+   },
+   {
+    "id": "281bd2bb-b5b0-4d47-a8cc-f819407c2532",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:45:38.394021Z"
+   },
+   {
+    "id": "6c21dbdd-442f-4091-b53d-38c35359abbc",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:45:08.946430Z"
+   },
+   {
+    "id": "8bdc44ad-d860-4cb8-a44a-9db9698c02dd",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:44:38.165699Z"
+   },
+   {
+    "id": "79b275f2-72f1-4702-ba36-b46cc2ce6b31",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:44:27.137349Z"
+   },
+   {
+    "id": "b03fbef3-ec4c-4821-8921-846ffd0e7f21",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:44:17.275888Z"
+   },
+   {
+    "id": "0f1dffbd-4d0a-4454-b23a-bd1e877e043e",
+    "feature": "FEATURE_CODING",
+    "title": "Kimi Code",
+    "items": [
+     {
+      "balanceId": "1a0c1a18-d292-8068-8000-00006ec039cf",
+      "amountRatio": 0.0001,
+      "unit": "UNIT_CREDIT"
+     }
+    ],
+    "status": "DONE",
+    "timestamp": "2026-09-21T04:44:01.568381Z"
+   }
+  ]
+ }
+}

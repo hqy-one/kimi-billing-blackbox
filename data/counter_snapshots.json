@@ -1,0 +1,34 @@
+{
+ "note": "官方计数器读数快照（GetSubscriptionStats / 用户侧页面），各自标注来源",
+ "readings": [
+  {
+   "ts": "2026-09-21T05:12Z",
+   "amountUsedRatio": null,
+   "kimiCodeUsedRatio": 0.0226,
+   "source": "GetSubscriptionStats API 实测",
+   "file": "01_evidence/stats_baseline.json（调研目录）"
+  },
+  {
+   "ts": "2026-09-21T06:09:47Z",
+   "amountUsedRatio": 0.2222,
+   "kimiCodeUsedRatio": 0.0292,
+   "source": "GetSubscriptionStats API 实测",
+   "file": "02_experiments/work_exp_baseline.txt（调研目录）"
+  },
+  {
+   "ts": "2026-09-21T08:50Z",
+   "amountUsedRatio": 0.2535,
+   "source": "用户侧订阅页截图（Total usage 25.35%）"
+  },
+  {
+   "ts": "2026-09-21T02:26Z",
+   "amountUsedRatio": "≈0.195",
+   "source": "用户侧读数（上午 Work 任务结束时）"
+  },
+  {
+   "ts": "2026-09-21T01:43Z",
+   "amountUsedRatio": 0.0,
+   "source": "周期内首条流水时间戳推断（此前 0 条扣费）"
+  }
+ ]
+}
