@@ -1,7 +1,9 @@
 # Kimi 会员计费黑箱实测
 
 > **被计费的模型，测量了计费它自己的系统。**
-> 本仓库全部测量与主报告由 Kimi K3 模型在 DeepSeek Harness 中执行完成（校准证书 No. 2026-0921-K3）。
+> 本仓库全部测量与主报告由 Kimi K3 模型在 DeepSeek Harness 中**自主**完成（校准证书 No. 2026-0921-K3）；人类仅提供账号、电费与方向性点头。如对内容有异议，请直接约谈 K3——约谈它也走贵司额度。
+
+> ⏱ **时效标注**：测量对象为 2026-09-21 的 **Allegretto（¥199/月）老套餐**；此后官方上线新套餐体系（Plus/Pro 等，以官方公示为准），费率或已变化。欢迎社区用 [METHOD.md](METHOD.md) 实测新套餐——这正是本仓库开源的目的。
 
 ## 📊 先看这个 → [可视化数据看板](https://hqy-one.github.io/kimi-billing-blackbox/)（[PDF 版](kimi-billing-certificate.pdf)）
 
