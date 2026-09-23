@@ -2,3 +2,4 @@
 shots/
 curve.svg.frag
 .playwright-cli/
+cert_page_*.png
