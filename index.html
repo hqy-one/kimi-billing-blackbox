@@ -231,7 +231,10 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   h2,h3{break-after:avoid}
   .cert-head,.doc-kind,h1,.subtitle,.byline{break-after:avoid}
   footer{break-inside:avoid; break-before:avoid}
+  .no-print{display:none !important}
+  .print-only{display:block !important}
 }
+.print-only{display:none}
 </style>
 </head>
 <body>
@@ -298,7 +301,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   </section>
 
   <!-- 机制速览 -->
-  <section>
+  <section class="no-print">
     <div class="sec-label">机 制 速 览 · 先 读 这 一 节</div>
     <h2>Kimi 会员计费的三层结构</h2>
     <p class="prose">先把计费这件事本身说清楚，再看测量结果。</p>
@@ -316,14 +319,6 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
 
     <div class="receipts" style="margin-top:22px">
       <div class="receipt">
-        <h3>算例 · 一次扣费的诞生（受控实验 W2 实录）</h3>
-        <div class="line"><span>输出 1,055 tok × Work 输出价 ¥270/M</span><span class="mono">¥0.28</span></div>
-        <div class="line"><span>缓存读 29,184 tok × Work 缓存价 ¥1.82/M</span><span class="mono">¥0.05</span></div>
-        <div class="line"><span>新输入 186 tok × Work 输入价 ¥37.2/M</span><span class="mono">¥0.01</span></div>
-        <div class="line"><span>合计（标价口径）→ ÷¥10 换算 → 量化取整</span><span class="mono">¥0.34 → 0.034%</span></div>
-        <div class="total"><span>从池中实扣</span><span class="mono">0.03%</span></div>
-      </div>
-      <div class="receipt">
         <h3>两个"钱"的口径，别混</h3>
         <div class="line"><span><b>标价口径（口径 A）</b>：池子的内部记账单位。说"这次扣费 ¥1.10"，意思是"相当于 ¥1.10 的官方 API 标价"——用来比较通道与任务的相对成本。本页的 ¥ 默认此口径。</span></div>
         <div class="line" style="margin-top:8px"><span><b>实付口径（口径 B）</b>：你真实付出的固定 ¥199/月。走 Code 通道，这 ¥199 约买到 ¥2,540 标价算力；走 Work+iFinD，只买到约 ¥397（见购买力测算）。</span></div>
@@ -332,7 +327,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   </section>
 
   <!-- 消耗曲线 -->
-  <section>
+  <section class="no-print">
     <div class="sec-label">消 耗 曲 线</div>
     <h2>一天的两种速度</h2>
     <p class="prose">
@@ -2396,8 +2391,20 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       我们用 <b>18 个 Code 受控调用 + 2 个有机验证点</b>、<b>14 个 Work 受控回合</b>与 <b>160 对有机调用秒级配对</b>，
       把两套费率逐一钉在刻度尺上（区间为 0.01% 量化网格下的可行域）：
     </p>
-    <div class="rulers" id="rulers"></div>
-    <div class="legend" style="border:1px solid var(--hair); border-top:none; margin-top:-9px">
+    <table class="print-only" style="width:100%;border-collapse:collapse;font-size:13px;margin-top:6px">
+      <caption style="caption-side:top;text-align:left;font-size:12.5px;color:var(--ink3);padding-bottom:6px">费率卡总表（区间为 0.01% 量化网格下的可行域；1 credit ≡ ¥0.10 目录价）</caption>
+      <thead><tr style="border-bottom:1.5px solid var(--ink)">
+        <th style="text-align:left;padding:6px 4px">计费项</th><th style="text-align:right;padding:6px 4px">官方 API 目录价</th>
+        <th style="text-align:right;padding:6px 4px">Code 实测</th><th style="text-align:right;padding:6px 4px">Work 实测</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--hair)"><td style="padding:6px 4px">输入（未命中缓存）</td><td style="text-align:right">¥21/M</td><td style="text-align:right"><b>¥13.3/M</b>（63 折）</td><td style="text-align:right"><b>¥37.2/M</b>（1.8×）</td></tr>
+        <tr style="border-bottom:1px solid var(--hair)"><td style="padding:6px 4px">缓存命中</td><td style="text-align:right">¥2.1/M</td><td style="text-align:right"><b>¥0.08/M</b>（4%，近免费）</td><td style="text-align:right"><b>¥1.82/M</b>（≈原价）</td></tr>
+        <tr style="border-bottom:1px solid var(--hair)"><td style="padding:6px 4px">输出</td><td style="text-align:right">¥105/M</td><td style="text-align:right"><b>¥105/M</b>（同价）</td><td style="text-align:right"><b>¥269.6/M</b>（2.6×）</td></tr>
+        <tr><td style="padding:6px 4px">单次保底 / 量化</td><td style="text-align:right">—</td><td style="text-align:right">1 credit / 0.01% 网格</td><td style="text-align:right">1 credit / 0.01% 网格</td></tr>
+      </tbody>
+    </table>
+    <div class="rulers no-print" id="rulers"></div>
+    <div class="legend no-print" style="border:1px solid var(--hair); border-top:none; margin-top:-9px">
       <span><i class="sw code"></i>Kimi Code 实测（点解 + 区间须线）</span>
       <span><i class="sw work"></i>Kimi Work 实测（点解 + 区间须线）</span>
       <span><i class="sw official"></i>官方 API 公开价</span>
@@ -2405,6 +2412,17 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="verdict">
       缓存一项，两个产品相差 <b>22 倍</b>：Code 按官方缓存价的 4% 象征性收取（¥0.05~0.09/M，近免费），
       Work 按官方缓存价足额收取（¥1.60~2.10/M）。<b>长程任务的 token 以缓存读为主——这一格刻度，决定长任务的真实成本结构。</b>
+    </div>
+
+    <div class="receipts" style="margin-top:22px">
+      <div class="receipt">
+        <h3>算例 · 一次扣费的诞生（受控实验 W2 实录）</h3>
+        <div class="line"><span>输出 1,055 tok × Work 输出价 ¥270/M</span><span class="mono">¥0.28</span></div>
+        <div class="line"><span>缓存读 29,184 tok × Work 缓存价 ¥1.82/M</span><span class="mono">¥0.05</span></div>
+        <div class="line"><span>新输入 186 tok × Work 输入价 ¥37.2/M</span><span class="mono">¥0.01</span></div>
+        <div class="line"><span>合计（标价口径）→ ÷¥10 换算 → 量化取整</span><span class="mono">¥0.34 → 0.034%</span></div>
+        <div class="total"><span>从池中实扣</span><span class="mono">0.03%</span></div>
+      </div>
     </div>
   </section>
 
@@ -2414,7 +2432,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <h2>41.9 分钟，≈19.5%：一次 Work 任务的完整解剖</h2>
     <p class="prose">
       2026-09-21 上午，一个"Max effort"深度研究任务：15 个代理、254 条去重模型调用、1,518 万 tokens（93% 为缓存读）。
-      这一次任务消耗 <span class="mono">2,089 credits</span>（流水口径 20.89% ≈ 计数器口径 19.5%；口径差异见上一节曲线说明）——
+      这一次任务消耗 <span class="mono">2,089 credits</span>（流水逐条合计 20.89%；官方计数器口径 ≈19.5%，差额来自逐条 0.01% 量化膨胀）——
       当日全天官方计数器也只有 <span class="mono">25.35%</span>，即这一个任务吃掉了全天消耗的大部分。
     </p>
     <div class="anatomy">
@@ -2494,7 +2512,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   </section>
 
   <!-- 行业对比 -->
-  <section>
+  <section class="no-print">
     <div class="sec-label">行 业 坐 标</div>
     <h2>透明度阶梯上的位置</h2>
     <p class="prose">
