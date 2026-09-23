@@ -221,7 +221,17 @@ footer .f-note{font-size:12px; color:var(--ink3); line-height:1.8; max-width:520
 footer .f-note a{color:var(--ink2)}
 footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; flex:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-@media print{*{-webkit-print-color-adjust:exact; print-color-adjust:exact} body{background:#fff} section{break-inside:avoid-page; margin-bottom:32px} .hero{break-after:page} svg{max-width:100%; height:auto}}
+@media print{
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  @page{margin:14mm 12mm}
+  body{background:#fff}
+  section{break-inside:auto; margin-bottom:24px}
+  .figures,.receipt,.power,.anat-grid,.evidence,.disclaimer,.clause li,table,.curvewrap,.ruler,.legend,.poolbar{break-inside:avoid}
+  .sec-label{break-after:avoid}
+  h2,h3{break-after:avoid}
+  .cert-head,.doc-kind,h1,.subtitle,.byline{break-after:avoid}
+  footer{break-inside:avoid; break-before:avoid}
+}
 </style>
 </head>
 <body>
@@ -256,11 +266,6 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     —— 被计费的模型，测量了计费它自己的系统 ——<br>
     <span style="font-size:13px;color:var(--ink3)">本证书由 K3 自主完成；人类仅提供账号、电费与方向性点头。如对内容有异议，请直接约谈 K3——约谈它也走贵司额度。</span>
   </p>
-  <p style="font-size:13px;color:var(--ink3);border:1px dashed var(--hair);padding:10px 14px;margin-top:18px">
-    ⏱ <b>时效标注</b>：本证书测量的是 2026-09-21 的 <b>Allegretto 老套餐</b>。此后官方上线新套餐体系（Plus/Pro 等，以官方公示为准），费率或已变化——欢迎用
-    <a href="https://github.com/hqy-one/kimi-billing-blackbox/blob/main/METHOD.md">METHOD.md</a> 的方法实测新套餐，这正是本仓库开源的目的。
-  </p>
-
   <!-- 关键数字 -->
   <section style="padding-top:34px">
     <div class="figures">
@@ -273,7 +278,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
 
   <!-- 积分流水卡 -->
   <section>
-    <div class="sec-label">一 卡 读 懂</div>
+    <div class="sec-label" id="receipt">一 卡 读 懂</div>
     <h2>你的 ¥199，是一包 10,000 credits 的点卡</h2>
     <div class="receipts" style="grid-template-columns:1fr; margin-top:18px">
       <div class="receipt">
@@ -299,14 +304,13 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <p class="prose">先把计费这件事本身说清楚，再看测量结果。</p>
 
     <ol class="clause">
-      <li><span class="c-no mono">01</span><div><h3>你付的钱</h3><p>¥199/月，固定。用多用少都是这个价，不超收、不退还。</p></div></li>
-      <li><span class="c-no mono">02</span><div><h3>你得到的东西</h3><p>一根 0~100% 的百分比条。官方只公布档位间的相对倍率和粗略的任务数估算；没有绝对 token 数，没有人民币折算，没有分项费率。</p></div></li>
-      <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p><b>数量</b> 10,000 credits/月（官方只给百分比；本报告按其流水最小粒度 0.01% 取的刻度，1 credit = 0.01%）；<b>换算率</b> 按官方 API 目录价 1 credit ≡ ¥0.10 ⇒ 目录价 ¥1,000；<b>含金量</b>随通道浮动（0.40×~2.54×，见下）。下文的「¥」都是目录价折算，不是你的实付。</p></div></li>
-      <li><span class="c-no mono">04</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成 credits 从池中扣除（1 credit = 0.01% 取整，单次最低 1 credit）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
+      <li><span class="c-no mono">01</span><div><h3>你付的钱，和你看到的东西</h3><p>¥199/月固定，用多用少都是这个价。换来的只有一根 0~100% 的百分比条——官方公布档位间的相对倍率与粗略任务数估算，没有绝对 token 数、没有人民币折算、没有分项费率。</p></div></li>
+      <li><span class="c-no mono">02</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成 credits 从池中扣除（1 credit = 0.01% 取整，单次最低 1 credit）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
     </ol>
+    <p class="prose" style="margin-top:4px;font-size:13.5px">换算（10,000 credits ≡ ¥1,000 目录价、各通道含金量 0.40×~2.54×）见上一节积分流水卡；下文所有「¥」都是目录价折算，不是你的实付。</p>
 
     <div class="verdict" style="margin-top:18px">
-      <b>为什么同一件事有两种价格？</b>因为第 04 条的"通道费率"从未公示。同一个 K3 模型、同一池额度，
+      <b>为什么同一件事有两种价格？</b>因为"通道费率"从未公示。同一个 K3 模型、同一池额度，
       走 Code 通道便宜，走 Work 通道贵——缓存一项相差 22 倍。下面把两套费率逐一校准。
     </div>
 
@@ -2410,8 +2414,8 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <h2>41.9 分钟，≈19.5%：一次 Work 任务的完整解剖</h2>
     <p class="prose">
       2026-09-21 上午，一个"Max effort"深度研究任务：15 个代理、254 条去重模型调用、1,518 万 tokens（93% 为缓存读）。
-      计费流水逐条合计，这一次任务消耗 <span class="mono">20.89%</span>——而当日全天官方计数器仅 <span class="mono">25.35%</span>（流水合计 <span class="mono">27.96%</span>），
-      即这一个任务吃掉了全天消耗的大部分。
+      这一次任务消耗 <span class="mono">2,089 credits</span>（流水口径 20.89% ≈ 计数器口径 19.5%；口径差异见上一节曲线说明）——
+      当日全天官方计数器也只有 <span class="mono">25.35%</span>，即这一个任务吃掉了全天消耗的大部分。
     </p>
     <div class="anatomy">
       <div class="verdict" style="margin:6px 0 18px">
@@ -2477,51 +2481,29 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
   <!-- 购买力 -->
   <section>
     <div class="sec-label">购 买 力 测 算</div>
-    <h2>同一张 ¥199，三条通道三种买力</h2>
+    <h2>买力差的后果：同一池额度，单价相差 7 倍</h2>
     <p class="prose">
-      这包 credits 值多少钱，取决于走哪条通道。<b>基准 = 全按官方目录价使用 = 1.00× = ¥1,000</b>；下表是同一包 credits 经各通道实际能换到的目录价算力（按实测费率与 98% 缓存结构推算）：
+      三条通道各能换到多少目录价算力，已列在<a href="#receipt">积分流水卡</a>（2.54× / 0.57× / 0.40×）。
+      把它折算成会员费口径的<b>有效 token 单价</b>：Code 通道 <span class="mono">¥0.27/M tokens</span>，
+      Work 通道 <span class="mono">¥1.91/M</span>——相差 <b>7 倍</b>。
     </p>
-    <div class="power">
-      <div class="row">
-        <div class="name">纯 Code 通道<small>输入 63 折 + 缓存近免费</small></div>
-        <div class="track"><div class="fill" style="width:100%"></div></div>
-        <div class="val">≈ ¥2,540</div>
-      </div>
-      <div class="row">
-        <div class="name">纯 Work 通道<small>三项加价后的标价换算</small></div>
-        <div class="track"><div class="fill grey" style="width:22.7%"></div></div>
-        <div class="val">≈ ¥570</div>
-      </div>
-      <div class="row">
-        <div class="name">Work + iFinD 混合<small>上午任务的真实结构</small></div>
-        <div class="track"><div class="fill red" style="width:15.9%"></div></div>
-        <div class="val">≈ ¥397</div>
-      </div>
+    <div class="verdict">
+      轻度使用的 Code 订阅依然划算；<b>问题从来不在价格水平，而在用户无法在任务开始前预知成本</b>——
+      同一个"行动吧"，在 Code 里值 ¥0.27/M，在 Work 里值 ¥1.91/M，而界面上只有一个百分比。
     </div>
-    <p class="prose" style="margin-top:14px">
-      折算会员费口径的有效单价：Code 通道 <span class="mono">¥0.27/M tokens</span>，
-      Work 通道 <span class="mono">¥1.91/M</span>——相差 <b>7 倍</b>。轻度使用的 Code 订阅依然划算；
-      问题从来不在价格水平，而在<b>用户无法在任务开始前预知成本</b>。
-    </p>
   </section>
 
   <!-- 行业对比 -->
   <section>
     <div class="sec-label">行 业 坐 标</div>
     <h2>透明度阶梯上的位置</h2>
-    <div class="tbl-scroll">
-    <table class="industry">
-      <thead><tr><th>产品</th><th>额度制度</th><th>透明度</th><th>关键差异</th></tr></thead>
-      <tbody>
-        <tr><td>小米 MiMo Token Plan</td><td>订阅 + token 包</td><td><span class="tag high">高</span></td><td>逐 token 系数表全公开，五家唯一</td></tr>
-        <tr><td>智谱 GLM Coding Plan</td><td>积分制（token×系数/10000）</td><td><span class="tag mid">中</span></td><td>公式公开，但接口只回百分比</td></tr>
-        <tr><td>OpenAI Codex / Anthropic Claude</td><td>固定月费 + 时间窗限速</td><td><span class="tag mid">中</span></td><td>无月度死池；窗口内用量不透明但制度可预期</td></tr>
-        <tr><td>Manus</td><td>积分制（$20 = 4,000 credits）</td><td><span class="tag low">低</span></td><td>官方自认"成本难以预测"</td></tr>
-        <tr><td>Devin</td><td>ACU 制（$2.25/ACU ≈ 15 分钟）</td><td><span class="tag low">低</span></td><td>社区批评"不透明、不可预测的 ACU 计费"</td></tr>
-        <tr class="kimi"><td>Kimi Allegretto</td><td>月度共享死池（实测 10,000 credits ≈ ¥1,000 标价池；官方档位口径"Agent 档 4 倍"）</td><td><span class="tag low">低</span></td><td>仅百分比进度条；双费率卡未公示；插件按次抽成无提示（本报告实测）</td></tr>
-      </tbody>
-    </table>
-    </div>
+    <p class="prose">
+      同类产品里，小米 MiMo 逐 token 系数表全公开，智谱 GLM 公式公开（接口只回百分比），
+      OpenAI / Anthropic 用时间窗限速、不设月度死池，Manus 与 Devin 虽为黑盒积分/ACU 制但至少公开了换算关系。
+      <b>Kimi 是唯一同时存在"黑盒百分比 + 月度死池 + 按次抽成插件 + 无预算保护"的产品</b>——
+      但需客观指出：池内定价在轻度使用下是五家中最划算的之一，问题在不可预知性，不在价格水平。
+    </p>
+    <p style="font-size:13px;color:var(--ink3)">六家完整对比表（含官方来源 URL）见 <a href="https://github.com/hqy-one/kimi-billing-blackbox/blob/main/REPORT.md">REPORT.md</a> §7。</p>
   </section>
 
   <!-- 证据与免责 -->
@@ -2539,15 +2521,17 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
       <h3>免 责 与 边 界 声 明</h3>
       <ol>
         <li>本页为<b>个人消费计量研究</b>：付费用户测量自己账号的消费记录，属消费者知情权范畴；不构成对任何主体的指控，亦不构成法律意见。</li>
-        <li>费率卡为<b>有限信息下的数学反演</b>：全部给出量化区间而非单点断言；凡属解释性内容（如商业逻辑推测）在报告中均已单独标注为推测。</li>
-        <li>测量范围为单一账号、单档位、K3 High 模式、2026-09-21 当日；官方可随时调整计费规则，届时本报告相应内容转为历史记录。</li>
-        <li>测量误差受 0.01% = 1 credit 计费量化网格限制（单次最小分辨 ≈¥0.10 标价）；我们以区间交集与总量回测双重控制该误差。</li>
-        <li>官方对 Allegretto 档位的宣传口径为"Agent 档额度的 4 倍"（档位间相对值）；本报告的「10,000 credits ≈ ¥1,000 标价池 / 5.03×」为实测推算，两者口径不同，均已如实标注。截至测量日，官方未公示任何档位的额度绝对值与池内费率。</li>
-        <li>本报告所用接口路径此前已有社区记录，我们的增量是受控实验费率卡与双通道发现；外部价格事实经独立调研核验（<a href="./research/factcheck-2026-09-21.md">核验记录</a>）。</li>
-        <li>全部原始数据（脱敏后）与拟合脚本随仓库公开，欢迎复核与复现；方法见 <a href="./METHOD.md">METHOD.md</a>。</li>
+        <li>费率卡为<b>有限信息下的数学反演</b>：给量化区间而非单点断言，解释性内容（如商业逻辑推测）均单独标注为推测；测量误差受 0.01% = 1 credit 量化网格限制（单次最小分辨 ≈¥0.10 目录价），我们以区间交集与总量回测双重控制。</li>
+        <li>测量范围为单一账号、单档位、K3 High 模式、2026-09-21 当日；官方可随时调整规则，届时本文转为历史记录。官方"Agent 档 4 倍"是档位间口径，与本报告的换算率（10,000 credits ≈ ¥1,000 目录价 / 5.03×）不是同一口径，均已标注。</li>
+        <li>全部脱敏数据与拟合脚本随仓库公开，欢迎复核；接口路径此前已有社区记录（<a href="./research/factcheck-2026-09-21.md">核验记录</a>）。<b>完整边界、方法与勘误见 REPORT.md 免责声明与 METHOD.md。</b></li>
       </ol>
     </div>
   </section>
+
+  <p style="font-size:13px;color:var(--ink3);border:1px dashed var(--hair);padding:10px 14px;margin-top:22px">
+    ⏱ <b>时效标注</b>：本证书测量的是 2026-09-21 的 <b>Allegretto 老套餐</b>。此后官方上线新套餐体系（Plus/Pro 等，以官方公示为准），费率或已变化——欢迎用
+    <a href="https://github.com/hqy-one/kimi-billing-blackbox/blob/main/METHOD.md">METHOD.md</a> 的方法实测新套餐，这正是本仓库开源的目的。
+  </p>
 
   <footer>
     <div class="f-note">
