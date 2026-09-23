@@ -10,7 +10,9 @@
 import json, os, math, statistics, datetime
 import numpy as np
 
-D = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+D = os.path.join(REPO_DIR, "data")
 USAGE = json.load(open(os.path.join(D, "code_organic_usage.json")))
 BILL = json.load(open(os.path.join(D, "code_billing_entries.json")))
 
@@ -396,16 +398,31 @@ def parse(wf):
                                     cache=u.get("inputCacheRead"), t1=d.get("time"))
     return [steps[k] for k in order]
 
-W = parse(WSESS)
-T = parse(CTITLE)
-print(f"Work 受控会话 wire 步数 = {len(W)}（报告称 14 个模型步 ✓）")
-print(f"隐藏标题调用 wire: miss={T[0]['miss']} out={T[0]['out']}")
-th = np.array([tok_est(s["think"]) for s in W])
-tx = np.array([tok_est(s["text"]) + s["tool"] / 4.0 for s in W])
-ou = np.array([float(s["out"]) for s in W])
+stats_file = os.path.join(D, "work_controlled_wire_stats.json")
+if os.path.exists(WSESS) and os.path.exists(CTITLE):
+    W = parse(WSESS)
+    T = parse(CTITLE)
+    title_miss, title_out = T[0]['miss'], T[0]['out']
+    th = np.array([tok_est(s["think"]) for s in W])
+    tx = np.array([tok_est(s["text"]) + s["tool"] / 4.0 for s in W])
+    ou = np.array([float(s["out"]) for s in W])
+    w_steps = W
+elif os.path.exists(stats_file):
+    wire_stats = json.load(open(stats_file, encoding="utf-8"))
+    title_miss = wire_stats["ctitle"]["miss"]
+    title_out = wire_stats["ctitle"]["out"]
+    w_steps = wire_stats["steps"]
+    th = np.array([float(s["think_est"]) for s in w_steps])
+    tx = np.array([float(s["vis_est"]) for s in w_steps])
+    ou = np.array([float(s["out"]) for s in w_steps])
+else:
+    raise FileNotFoundError("既未找到本地桌面 wire.jsonl，也未找到 data/work_controlled_wire_stats.json")
+
+print(f"Work 受控会话 wire 步数 = {len(w_steps)}（报告称 14 个模型步 ✓）")
+print(f"隐藏标题调用 wire: miss={title_miss} out={title_out}")
 print()
 print(f"{'step':>9} {'out':>6} {'think_est':>9} {'vis_est':>8} {'think+vis':>9} {'vis-ratio':>9}")
-for s, a, b, o in zip(W, th, tx, ou):
+for s, a, b, o in zip(w_steps, th, tx, ou):
     print(f"{str((s.get('t0'),)):>9} {o:6.0f} {a:9.1f} {b:8.1f} {a+b:9.1f}   vis/(t+v)={b/(a+b):.2f}")
 
 def fit2(X, y):
@@ -422,10 +439,7 @@ print(f"  -> 系数接近 1 的模型即真实口径。A 的 think 系数 = {bA[
 
 print()
 print("  三个决定性单点（可见输出极少、思考正文很长）：")
-for k in [(0, 1), (9, 1), (10, 1)]:
-    s = [x for x in W if x["t1"] and (x["t0"],)][0]
-for s in W:
-    a = tok_est(s["think"]); b = tok_est(s["text"]) + s["tool"] / 4.0
+for s, a, b in zip(w_steps, th, tx):
     if b < 30 and a > 25:
         dur = (s.get("t1", 0) - s.get("t0", 0)) / 1000.0
         print(f"    step t0={s['t0']} 步时长={dur:.1f}s  out={s['out']:.0f}  "
@@ -436,8 +450,9 @@ print()
 print("=" * 78)
 print("STEP 6  报告受控实验表 out 列 vs 原始 API completion_tokens")
 print("=" * 78)
-EA = json.load(open(os.path.join("..", "02_experiments", "exp_block_a_results.json")))
-EB = json.load(open(os.path.join("..", "02_experiments", "exp_block_b_results.json")))
+ctrl_raw = json.load(open(os.path.join(D, "code_controlled_raw.json"), encoding="utf-8"))
+EA = ctrl_raw["blocks"]["exp_block_a_results.json"]
+EB = ctrl_raw["blocks"]["exp_block_b_results.json"]
 raw = {}
 for r in EA + EB:
     if "usage" in r:

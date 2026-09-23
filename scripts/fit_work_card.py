@@ -3,8 +3,10 @@
 数据：data/work_controlled_table.json（W1-W7, T11 为单步点）。
 模型：billed¥ = Pin*miss + Pc*cache + Pout*out；1% ≡ ¥10；网格 0.01% ⇒ 带 ±¥0.05。
 输出：区间交集 + OLS 点解 + RMSE。"""
-import json, itertools
-d=json.load(open('data/work_controlled_table.json'))
+import json, itertools, os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+D = os.path.join(SCRIPT_DIR, "..", "data") if os.path.exists(os.path.join(SCRIPT_DIR, "..", "data")) else "data"
+d=json.load(open(os.path.join(D, 'work_controlled_table.json'), encoding='utf-8'))
 rows=[r for r in d['rows'] if isinstance(r['miss'],int)]
 def band(b): return (b-0.005)*10, (b+0.005)*10  # ¥
 # 区间交集（粗网格搜索）

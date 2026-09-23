@@ -11,5 +11,6 @@
 | `code_organic_usage.json` | 194 条 Code 有机调用 usage | DSH 会话日志 |
 | `code_billing_entries.json` | 225 条 Code 通道流水 | ListBalanceActions |
 | `code_controlled_raw.json` | Code 受控实验块 A/B/D 原始记录 | 02_experiments |
+| `work_controlled_wire_stats.json` | Work 受控实验 14 步 wire 统计指标（时间戳/token 纯数值，无文本） | 审计脚本复算支撑 |
 
 **未发布**：wire.jsonl 原文（含任务内容，不可脱敏）与调研目录其余工作文件；usage/流水已提取为上述无内容字段的子集。

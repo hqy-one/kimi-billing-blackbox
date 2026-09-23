@@ -2,10 +2,12 @@
 """Code 通道缓存价：有机调用 usage↔流水 ±3s 配对 + OLS。
 数据：data/code_organic_usage.json（t, in, cache, out）+ data/code_billing_entries.json（ts, amt）。
 用法：python3 scripts/fit_code_cache.py"""
-import json, datetime
+import json, datetime, os
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+D = os.path.join(SCRIPT_DIR, "..", "data") if os.path.exists(os.path.join(SCRIPT_DIR, "..", "data")) else "data"
 def ue(s): return datetime.datetime.fromisoformat(s.replace('Z','+00:00')).timestamp()
-U=json.load(open('data/code_organic_usage.json'))
-B=json.load(open('data/code_billing_entries.json'))
+U=json.load(open(os.path.join(D, 'code_organic_usage.json'), encoding='utf-8'))
+B=json.load(open(os.path.join(D, 'code_billing_entries.json'), encoding='utf-8'))
 pairs=[]
 for u in U:
     t0=u['t']
