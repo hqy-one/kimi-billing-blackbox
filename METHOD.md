@@ -11,13 +11,13 @@
 ## 进阶：费率卡复算
 
 - Work 卡：`python3 scripts/fit_work_card.py`（14 方程 OLS + 区间交集）；
-- Code 卡：`python3 scripts/fit_code_cache.py`（有机配对 OLS；精确复现需按其内注释的保底过滤）；
+- Code 卡：`python3 scripts/fit_code_cache.py`（有机配对 OLS；精确复现需过滤 0.01% 取整点）；
 - wire 提取：`python3 scripts/analyze_wire.py <wire.jsonl>`；
 - 思考口径审计：`python3 scripts/audit_reasoning_anchor.py`。
 
 ## 可证伪点
 
-- 任何账号流水出现**非 0.01% 整数倍**的扣费 → 量化网格结论被推翻；
+- 连发微调用时官方计数器（`amountUsedRatio`）增量与流水同步（即跳动非零格数）→「后台无保底连续计费、流水为 ceil 伪影」的结论被推翻；
 - 任何人复现 Code 缓存单价显著高于 [0.05, 0.09] 区间 → 缓存近免费结论被推翻；
 - 官方公布费率卡与本报告不符 → 以官方为准，本报告勘误。
 

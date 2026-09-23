@@ -36,7 +36,7 @@ print(f"billing 流水    : {len(B)} 条, t∈[{datetime.datetime.utcfromtimesta
 print(f"流水 feature     : {sorted(set(r['f'] for r in B))}")
 amts = sorted(set(round(r['amt'], 6) for r in B))
 print(f"amt 取值         : {amts}  (全部为 {min(amts)*10000:.0f}e-4 的整数倍 -> 0.01% 网格)")
-print(f"amt==0.0001(0.01%保底) 条数 : {sum(1 for r in B if abs(r['amt']-0.0001)<1e-12)}/{len(B)}")
+print(f"amt==0.0001(0.01%单格展示) 条数 : {sum(1 for r in B if abs(r['amt']-0.0001)<1e-12)}/{len(B)}")
 print(f"¥ 换算           : amt×1000 = ¥   (0.0001 -> ¥0.100)")
 print(f"量化步长 q       : 0.0001 ratio = ¥0.100   均匀量化噪声 σ_q = q/√12 = ¥{0.1/math.sqrt(12):.4f}")
 
@@ -91,8 +91,8 @@ def build(subset, floor_excluded=False):
     return rows
 
 ALL_PAIRS = build(PAIRS)
-print(f"  其中 amt==0.01%保底 的条数  : {sum(1 for r in ALL_PAIRS if abs(r[1]-0.0001)<1e-12)}")
-print(f"  去掉保底后的条数            : {sum(1 for r in ALL_PAIRS if abs(r[1]-0.0001)>=1e-12)}")
+print(f"  其中 amt==0.01%单格 的条数  : {sum(1 for r in ALL_PAIRS if abs(r[1]-0.0001)<1e-12)}")
+print(f"  去掉单格取整后的条数        : {sum(1 for r in ALL_PAIRS if abs(r[1]-0.0001)>=1e-12)}")
 
 # ---------------------------------------------------------------- STEP 2
 print()
@@ -135,8 +135,8 @@ def fit(rows, label, floor_excluded):
           f"Pout 105.0 (={beta[2]/105:.3f})")
     return dict(rows=rows, beta=beta, se=se, se_hc1=se_hc1, rmse=rmse, resid=resid, X=X, y=y)
 
-F_all = fit(ALL_PAIRS, "Code 全配对集 (含 0.01% 保底)", floor_excluded=False)
-F_ex = fit(ALL_PAIRS, "Code 去保底集 (排除 amt==0.01%)", floor_excluded=True)
+F_all = fit(ALL_PAIRS, "Code 全配对集 (含 0.01% 取整点)", floor_excluded=False)
+F_ex = fit(ALL_PAIRS, "Code 筛选集 (排除 amt==0.01% 取整点用于斜率拟合)", floor_excluded=True)
 
 # ---------------------------------------------------------------- STEP 3
 print()
