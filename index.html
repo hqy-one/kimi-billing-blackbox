@@ -280,11 +280,14 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
         <h3>积 分 流 水 卡 · Allegretto（老套餐）</h3>
         <div class="line"><span>你付出</span><span class="mono">¥199 / 月（固定）</span></div>
         <div class="line"><span>你得到</span><span class="mono">10,000 credits（1 credit = 0.01% 池）</span></div>
-        <div class="line"><span>按官方目录价锚定（实测汇率 1 credit ≡ ¥0.10）</span><span class="mono">≈ ¥1,000</span></div>
-        <div class="line"><span>走 <b>Code</b> 通道：缓存近免费 + 输入 63 折 → 积分升值</span><span class="mono" style="color:var(--ink)">值 ¥2,540</span></div>
-        <div class="line"><span>走 <b>Work</b> 通道：输出加价 2.6× + 缓存照价收 + 开机费 → 积分贬值</span><span class="mono red">值 ¥570</span></div>
-        <div class="line"><span>Work + iFinD 插件跑一次真实任务（41.9 分钟实录）</span><span class="mono red">值 ¥397</span></div>
-        <div class="total"><span>同一包积分，换条通道，购买力相差 6.4 倍</span><span class="mono">0.40× ~ 2.54×</span></div>
+        <div class="line"><span><b>数量</b>：月度额度（1 credit = 0.01%，进度条一格）</span><span class="mono">10,000 credits</span></div>
+        <div class="line"><span><b>换算率</b>：按官方 API 目录价折算</span><span class="mono">1 credit ≡ ¥0.10</span></div>
+        <div class="line"><span><b>标价</b>：10,000 credits × ¥0.10</span><span class="mono">≈ ¥1,000</span></div>
+        <div class="line" style="border-top:1px solid var(--hair);padding-top:8px"><span><b>基准</b>：全按官方输出价使用</span><span class="mono">1.00× = ¥1,000</span></div>
+        <div class="line"><span>走 <b>Code</b>：缓存近乎免费 + 输入 63 折</span><span class="mono" style="color:var(--ink)">2.54× ≈ ¥2,540</span></div>
+        <div class="line"><span>走 <b>Work</b>：输出加价 2.6× + 缓存放原价 + 开机费</span><span class="mono red">0.57× ≈ ¥570</span></div>
+        <div class="line"><span>Work + iFinD 实跑一次任务（41.9 分钟）</span><span class="mono red">0.40× ≈ ¥397</span></div>
+        <div class="total"><span>同一包积分，含金量相差 6.4 倍</span><span class="mono">0.40× ~ 2.54×</span></div>
       </div>
     </div>
   </section>
@@ -298,7 +301,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <ol class="clause">
       <li><span class="c-no mono">01</span><div><h3>你付的钱</h3><p>¥199/月，固定。用多用少都是这个价，不超收、不退还。</p></div></li>
       <li><span class="c-no mono">02</span><div><h3>你得到的东西</h3><p>一根 0~100% 的百分比条。官方只公布档位间的相对倍率和粗略的任务数估算；没有绝对 token 数，没有人民币折算，没有分项费率。</p></div></li>
-      <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p>全池 = 10,000 credits（1 credit = 0.01%，正好是最小计费刻度）；实测汇率 1 credit ≡ ¥0.10 官方 API 标价 ⇒ 全池 ≈ ¥1,000 标价。下文的「¥」都是这个标价折算，不是你的实付。</p></div></li>
+      <li><span class="c-no mono">03</span><div><h3>本报告测出的换算</h3><p><b>数量</b> 10,000 credits/月（1 credit = 0.01%，正好是计费最小刻度）；<b>换算率</b> 按官方 API 目录价 1 credit ≡ ¥0.10 ⇒ 目录价 ¥1,000；<b>含金量</b>随通道浮动（0.40×~2.54×，见下）。下文的「¥」都是目录价折算，不是你的实付。</p></div></li>
       <li><span class="c-no mono">04</span><div><h3>扣费的方式</h3><p>每次调用：tokens × 通道费率，折算成 credits 从池中扣除（1 credit = 0.01% 取整，单次最低 1 credit）。<b>Code 与 Work 是两套不同的费率</b>——这就是本报告测出来的东西。</p></div></li>
     </ol>
 
@@ -2476,7 +2479,7 @@ footer .seal-sm{width:76px; height:76px; transform:rotate(4deg); opacity:.9; fle
     <div class="sec-label">购 买 力 测 算</div>
     <h2>同一张 ¥199，三条通道三种买力</h2>
     <p class="prose">
-      额度池 = 10,000 credits。锚点基准行：全买官方价输出 = <b>¥1,000（1.00×）</b>——标尺本身就是购买力表的第一行。同样的池子走不同通道，读数随之浮动（按实测费率与 98% 缓存结构推算）：
+      这包 credits 值多少钱，取决于走哪条通道。<b>基准 = 全按官方目录价使用 = 1.00× = ¥1,000</b>；下表是同一包 credits 经各通道实际能换到的目录价算力（按实测费率与 98% 缓存结构推算）：
     </p>
     <div class="power">
       <div class="row">
